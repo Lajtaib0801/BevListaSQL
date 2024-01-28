@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BevListaSQL.ListPage"
+             Title="Lista">
+    <FlexLayout Margin="20">
+        <Border Stroke="DarkGreen">
+            <ListView x:Name="termekekLSV">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowDefinitions="*,*" ColumnDefinitions="1*,3*,1*">
+                                <Image HorizontalOptions="Start" Grid.RowSpan="2" HeightRequest="50" WidthRequest="50" Source="{Binding ImgURL}" />
+                                <Label Grid.Column="1" FontAttributes="Bold" Text="{Binding Nev, StringFormat='Termék:{0}'}" />
+                                <Label Grid.Column="1" Grid.Row="1" FontAttributes="Italic" Text="{Binding Db, StringFormat='Mennyiség:{0} db'}" />
+                                <ImageButton ClassId="{Binding ID}" WidthRequest="40" HeightRequest="40" Grid.Column="2" Grid.RowSpan="2" Padding="5" Source="{StaticResource Trash}" Clicked="ImageButton_Clicked" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+    </FlexLayout>
+</ContentPage>
